@@ -1,0 +1,76 @@
+{
+  "locale": {
+    "lang": "en"
+  },
+  "meta": {
+    "title": "Mister Pagliacci: a sad clown who tells jokes from your desktop",
+    "description": "Mister Pagliacci lives in your menu bar or taskbar and tells a joke about once an hour, in one beat or two. Quiet during calls. No network. Free.",
+    "url": "https://pagliacci.app/",
+    "ogTitle": "Mister Pagliacci: a sad clown for your desktop",
+    "ogDescription": "He tells a joke about once an hour and knows when to stop. Free for Mac and Windows.",
+    "ogImageAlt": "A joke set in large type on red: I asked the circus for a raise. They gave me bigger shoes."
+  },
+  "og": {
+    "subtitle": "A sad clown for your desktop"
+  },
+  "a11y": {
+    "skipLink": "Skip to content",
+    "joke": "What he's saying"
+  },
+  "nav": {
+    "ariaLabel": "Main",
+    "wordmarkAria": "Mister Pagliacci, back to top",
+    "cta": "Get him",
+    "languageLabel": "Language"
+  },
+  "store": {
+    "mac": "Download on the Mac App Store",
+    "soon": "Coming soon to the Mac App Store",
+    "note": "Free · for Mac and Windows"
+  },
+  "hero": {
+    "intro": "Mister Pagliacci is a sad clown who lives in your menu bar or taskbar. About once an hour, he tells you a joke.",
+    "another": "Another one",
+    "call": "Join a call",
+    "leave": "Hang up"
+  },
+  "manners": {
+    "title": "He tells jokes. <em>Never on a call.</em>",
+    "slides": "Not over your slides",
+    "away": "Not to an empty room",
+    "shh": "Not after you say shh"
+  },
+  "promise": {
+    "body": "He never goes online, and every joke, every setting and his voice are free. A one-time Supporter purchase dresses him in his other costumes."
+  },
+  "finale": {
+    "title": "And who makes <em>him</em> laugh?",
+    "prompt": "Go on. I’ve heard them all.",
+    "tell": "Tell him one",
+    "again": "Tell him another"
+  },
+  "get": {
+    "title": "Give him a spot on your desktop.",
+    "lede": "He's small, he's polite, and he could use the company."
+  },
+  "footer": {
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "contact": "Contact",
+    "openSource": "This site is open source",
+    "fonts": "Set in Bodoni Moda (SIL Open Font License)."
+  },
+  "notFound": {
+    "metaTitle": "Not found · Mister Pagliacci",
+    "title": "Nobody here.",
+    "body": "This page doesn't exist. He looked. He even checked behind the curtain.",
+    "home": "Back to Mister Pagliacci"
+  },
+  "runtime": {
+    "callCut": "On a call. He stopped mid-word and won't make a sound until you hang up.",
+    "callQuiet": "On a call. Not a sound until you hang up.",
+    "callOverResume": "Where was I? Ah, yes:",
+    "callOver": "Call's over. He'll leave it a while before the next one.",
+    "reactions": ["…", "Hm.", "Ha! Don't tell anyone. The tear is painted on; the smile isn't."]
+  }
+}

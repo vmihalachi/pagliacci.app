@@ -1,0 +1,75 @@
+{
+  "en": {
+    "his": [
+      {
+        "id": "raise-shoes",
+        "lines": ["I asked the circus for a raise.", "They gave me bigger shoes."]
+      },
+      { "id": "tear-mondays", "lines": ["My tear is painted on.", "Saves time on Mondays."] },
+      { "id": "lion-tamer", "lines": ["I applied to be a lion tamer.", "The lion got the job."] },
+      { "id": "pie", "lines": ["A pie in the face is the only thing anyone’s ever baked me."] },
+      {
+        "id": "juggle",
+        "lines": ["I can juggle five balls at once.", "The trick is having nothing else going on."]
+      },
+      {
+        "id": "brave-face",
+        "lines": ["I put on a brave face every morning.", "Forty minutes and a lot of white paint."]
+      },
+      {
+        "id": "by-the-hour",
+        "lines": ["I’m paid by the hour, not by the joke.", "Hence: two an hour."]
+      },
+      { "id": "hat", "lines": ["I told my hat a joke.", "It went right over my head."] }
+    ],
+    "yours": [
+      ["Why did the scarecrow win an award?", "He was outstanding in his field."],
+      ["What do you call a fake noodle?", "An impasta."],
+      ["I’m reading a book about anti-gravity.", "I can’t put it down."]
+    ]
+  },
+  "it": {
+    "his": [
+      {
+        "id": "raise-shoes",
+        "lines": ["Ho chiesto un aumento al circo.", "Mi hanno dato le scarpe più grandi."]
+      },
+      {
+        "id": "circostanza",
+        "lines": ["Faccio il pagliaccio da trent’anni.", "Ormai ho solo facce di circostanza."]
+      },
+      {
+        "id": "trucco",
+        "lines": [
+          "Mi chiedono qual è il trucco per far ridere.",
+          "Cerone bianco. E mai piangerci sopra: cola."
+        ]
+      },
+      { "id": "pie", "lines": ["La torta in faccia è l’unico dolce che mi abbiano mai offerto."] },
+      {
+        "id": "indeterminato",
+        "lines": [
+          "Finalmente ho qualcosa a tempo indeterminato.",
+          "Il sorriso. Me l’hanno dipinto."
+        ]
+      },
+      {
+        "id": "tear-mondays",
+        "lines": ["La mia lacrima è dipinta.", "Così il lunedì faccio prima."]
+      },
+      {
+        "id": "by-the-hour",
+        "lines": ["Mi pagano a ore, non a battuta.", "Per questo ne dico due all’ora."]
+      },
+      {
+        "id": "lion-tamer",
+        "lines": ["Ho fatto il colloquio da domatore di leoni.", "Il posto l’ha preso il leone."]
+      }
+    ],
+    "yours": [
+      ["Qual è il colmo per un idraulico?", "Non capire un tubo."],
+      ["Perché il pomodoro non riesce a dormire?", "Perché l’insalata russa."],
+      ["Qual è il colmo per un giardiniere?", "Piantare in asso la fidanzata."]
+    ]
+  }
+}

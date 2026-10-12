@@ -1,0 +1,76 @@
+{
+  "locale": {
+    "lang": "it"
+  },
+  "meta": {
+    "title": "Mister Pagliacci: un pagliaccio triste che racconta battute dal desktop",
+    "description": "Mister Pagliacci vive nella barra dei menu o nella barra delle applicazioni e più o meno una volta all'ora racconta una battuta, in uno o due tempi. Zitto durante le chiamate. Niente rete. Gratis.",
+    "url": "https://pagliacci.app/it/",
+    "ogTitle": "Mister Pagliacci: un pagliaccio triste sul tuo desktop",
+    "ogDescription": "Più o meno una volta all'ora racconta una battuta, e sa quando smettere. Gratis per Mac e Windows.",
+    "ogImageAlt": "Una battuta in grande su fondo rosso: Ho chiesto un aumento al circo. Mi hanno dato le scarpe più grandi."
+  },
+  "og": {
+    "subtitle": "Un pagliaccio triste sul tuo desktop"
+  },
+  "a11y": {
+    "skipLink": "Vai al contenuto",
+    "joke": "Cosa sta dicendo"
+  },
+  "nav": {
+    "ariaLabel": "Principale",
+    "wordmarkAria": "Mister Pagliacci, torna su",
+    "cta": "Portalo a casa",
+    "languageLabel": "Lingua"
+  },
+  "store": {
+    "mac": "Scarica dal Mac App Store",
+    "soon": "Presto sul Mac App Store",
+    "note": "Gratis · per Mac e Windows"
+  },
+  "hero": {
+    "intro": "Mister Pagliacci è un pagliaccio triste che vive nella barra dei menu o nella barra delle applicazioni. Più o meno una volta all'ora ti racconta una battuta.",
+    "another": "Un'altra",
+    "call": "Entra in chiamata",
+    "leave": "Riattacca"
+  },
+  "manners": {
+    "title": "Racconta battute. <em>Mai durante una chiamata.</em>",
+    "slides": "Né sopra le tue slide",
+    "away": "Né a una stanza vuota",
+    "shh": "Né dopo uno shh"
+  },
+  "promise": {
+    "body": "Non va mai online, e battute, impostazioni e voce sono tutte gratis. Con un acquisto unico da sostenitore indossa anche i suoi altri costumi."
+  },
+  "finale": {
+    "title": "…ma chi fa ridere <em>Mister Pagliacci</em>?",
+    "prompt": "Sentiamo. Le conosco già tutte.",
+    "tell": "Raccontagliene una",
+    "again": "Raccontagliene un'altra"
+  },
+  "get": {
+    "title": "Fagli un posto sul desktop.",
+    "lede": "È piccolo, è educato e un po' di compagnia gli farebbe bene."
+  },
+  "footer": {
+    "privacy": "Privacy",
+    "terms": "Termini",
+    "contact": "Contatti",
+    "openSource": "Questo sito è open source",
+    "fonts": "Composto in Bodoni Moda (SIL Open Font License)."
+  },
+  "notFound": {
+    "metaTitle": "Pagina non trovata · Mister Pagliacci",
+    "title": "Non c'è nessuno.",
+    "body": "Questa pagina non esiste. Lui ha cercato dappertutto, anche dietro il sipario.",
+    "home": "Torna da Mister Pagliacci"
+  },
+  "runtime": {
+    "callCut": "In chiamata. Si è fermato a metà parola e non fiaterà finché non riattacchi.",
+    "callQuiet": "In chiamata. Non fiaterà finché non riattacchi.",
+    "callOverResume": "Dov'ero rimasto? Ah, sì:",
+    "callOver": "Chiamata finita. Aspetterà un po' prima della prossima.",
+    "reactions": ["…", "Mh.", "Ah! Non dirlo a nessuno: la lacrima è dipinta, il sorriso no."]
+  }
+}

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="{{locale.lang}}" data-gel="1">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{meta.title}}</title>
+    <meta name="description" content="{{meta.description}}" />
+    <meta name="theme-color" content="#B8321D" />
+    <link rel="canonical" href="{{meta.url}}" />
+    {{hreflangLinks}}
+    <script>
+      // Lights down before first paint: the script brings them up on the first punchline.
+      document.documentElement.classList.add("js");
+      if (!matchMedia("(prefers-reduced-motion: reduce)").matches)
+        document.documentElement.dataset.gel = "0";
+    </script>
+    {{langRedirectScript}} {{jsonLd}}
+    <meta property="og:title" content="{{meta.ogTitle}}" />
+    <meta property="og:description" content="{{meta.ogDescription}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="{{ogLocale}}" />
+    {{ogLocaleAlternates}}
+    <meta property="og:site_name" content="Mister Pagliacci" />
+    <meta property="og:url" content="{{meta.url}}" />
+    <meta property="og:image" content="https://pagliacci.app/og-{{locale.lang}}.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="{{meta.ogImageAlt}}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{meta.ogTitle}}" />
+    <meta name="twitter:description" content="{{meta.ogDescription}}" />
+    <meta name="twitter:image" content="https://pagliacci.app/og-{{locale.lang}}.png" />
+    <meta name="twitter:image:alt" content="{{meta.ogImageAlt}}" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" vite-ignore />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" vite-ignore />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link
+      rel="preload"
+      href="/src/fonts/BodoniModa-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">{{a11y.skipLink}}</a>
+
+    <header class="masthead">
+      <nav class="nav" aria-label="{{nav.ariaLabel}}">
+        <a class="wordmark" href="#top" aria-label="{{nav.wordmarkAria}}"
+          ><span class="mark mark-mini">{{portrait}}</span><span>Mister Pagliacci</span></a
+        >
+        <div class="nav-end">
+          {{languageSwitcher}}
+          <a class="btn btn-solid btn-small" href="#get">{{nav.cta}}</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- HERO: the joke is the picture. Setup with the lights down, a beat, and the punchline brings the
+           lights up in the next colour. The rules (beat, call manners) live in main.js. -->
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="joke" aria-live="polite" aria-label="{{a11y.joke}}">{{firstJoke}}</div>
+        <p class="aside" aria-live="polite"></p>
+
+        <div class="hero-foot">
+          <div class="who">
+            <span class="mark mark-hero" data-mood="awake">{{portrait}}</span>
+            <h1 id="hero-title">{{hero.intro}}</h1>
+          </div>
+          <div class="acts">
+            <button class="btn btn-solid" type="button" data-action="another">
+              {{hero.another}}
+            </button>
+            <button class="btn btn-line" type="button" data-action="call" aria-pressed="false">
+              {{hero.call}}
+            </button>
+          </div>
+          <div class="get-inline">
+            {{storeButton}}
+            <p class="note">{{store.note}}</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MANNERS AND PRICE: one short sentence, set large; the rest of his manners underneath. -->
+      <section class="manners" aria-labelledby="manners-title">
+        <h2 id="manners-title">{{manners.title}}</h2>
+        <div class="manners-foot">
+          <ul class="nos">
+            <li>{{manners.slides}}</li>
+            <li>{{manners.away}}</li>
+            <li>{{manners.shh}}</li>
+          </ul>
+          <p class="manners-notes">{{promise.body}}</p>
+        </div>
+      </section>
+
+      <!-- FINALE: the visitor tells him a joke. Then: get him. -->
+      <section class="finale" id="get" aria-labelledby="finale-title">
+        <h2 id="finale-title">{{finale.title}}</h2>
+        <div class="exchange">
+          <span class="mark mark-big" data-mood="awake">{{portrait}}</span>
+          <div class="talk" aria-live="polite"><p class="his">{{finale.prompt}}</p></div>
+        </div>
+        <button class="btn btn-solid btn-tell" type="button" data-action="tell">
+          {{finale.tell}}
+        </button>
+
+        <div class="get">
+          <h2>{{get.title}}</h2>
+          <p>{{get.lede}}</p>
+          {{storeButton}}
+          <p class="note">{{store.note}}</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <nav class="footer-links" aria-label="{{nav.ariaLabel}}">
+        <a href="{{legalPrivacyUrl}}">{{footer.privacy}}</a>
+        <a href="{{legalTermsUrl}}">{{footer.terms}}</a>
+        <a href="mailto:{{contactEmail}}">{{footer.contact}}</a>
+        <a href="https://github.com/vmihalachi/pagliacci.app">{{footer.openSource}}</a>
+      </nav>
+      <p>© 2026 <a href="https://vmihalachi.com">Vlad Mihalachi</a>. {{footer.fonts}}</p>
+    </footer>
+
+    <script type="application/json" id="runtime-i18n">
+      {{runtimeJson}}
+    </script>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
