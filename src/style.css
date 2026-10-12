@@ -624,7 +624,8 @@ html:not(.js) :is(.acts, .btn-tell, .exchange) {
 }
 .footer-links {
   display: flex;
-  gap: 22px;
+  flex-wrap: wrap;
+  gap: 8px 22px;
 }
 
 /* ---------- 404 and legal pages ---------- */
