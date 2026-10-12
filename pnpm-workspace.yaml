@@ -1,0 +1,2 @@
+minimumReleaseAgeExclude:
+  - "@deskling/landing@0.7.2"
