@@ -24,15 +24,17 @@
     "languageLabel": "Language"
   },
   "store": {
-    "mac": "Download on the Mac App Store",
+    "mac": "Mac App Store",
+    "windows": "Microsoft Store",
     "soon": "Coming soon to the Mac App Store",
-    "note": "Free · for Mac and Windows"
+    "soonWindows": "Coming soon to the Microsoft Store",
+    "note": "Free"
   },
   "hero": {
     "intro": "Mister Pagliacci is a sad clown who lives in your menu bar or taskbar. About once an hour, he tells you a joke.",
     "another": "Another one",
-    "call": "Join a call",
-    "leave": "Hang up"
+    "shh": "Shh",
+    "wake": "Wake up"
   },
   "manners": {
     "title": "He tells jokes. <em>Never on a call.</em>",
@@ -67,10 +69,10 @@
     "home": "Back to Mister Pagliacci"
   },
   "runtime": {
-    "callCut": "On a call. He stopped mid-word and won't make a sound until you hang up.",
-    "callQuiet": "On a call. Not a sound until you hang up.",
-    "callOverResume": "Where was I? Ah, yes:",
-    "callOver": "Call's over. He'll leave it a while before the next one.",
+    "shhCut": "Shh. He stopped mid-word and won't make a sound until you wake him.",
+    "shhQuiet": "Shh. Not a sound until you wake him.",
+    "wakeResume": "Where was I? Ah, yes:",
+    "woken": "Awake. He'll leave it a while before the next one.",
     "reactions": ["…", "Hm.", "Ha! Don't tell anyone. The tear is painted on; the smile isn't."]
   }
 }

@@ -24,15 +24,17 @@
     "languageLabel": "Lingua"
   },
   "store": {
-    "mac": "Scarica dal Mac App Store",
+    "mac": "Mac App Store",
+    "windows": "Microsoft Store",
     "soon": "Presto sul Mac App Store",
-    "note": "Gratis · per Mac e Windows"
+    "soonWindows": "Presto su Microsoft Store",
+    "note": "Gratis"
   },
   "hero": {
     "intro": "Mister Pagliacci è un pagliaccio triste che vive nella barra dei menu o nella barra delle applicazioni. Più o meno una volta all'ora ti racconta una battuta.",
     "another": "Un'altra",
-    "call": "Entra in chiamata",
-    "leave": "Riattacca"
+    "shh": "Shh",
+    "wake": "Svegliati"
   },
   "manners": {
     "title": "Racconta battute. <em>Mai durante una chiamata.</em>",
@@ -67,10 +69,10 @@
     "home": "Torna da Mister Pagliacci"
   },
   "runtime": {
-    "callCut": "In chiamata. Si è fermato a metà parola e non fiaterà finché non riattacchi.",
-    "callQuiet": "In chiamata. Non fiaterà finché non riattacchi.",
-    "callOverResume": "Dov'ero rimasto? Ah, sì:",
-    "callOver": "Chiamata finita. Aspetterà un po' prima della prossima.",
+    "shhCut": "Shh. Si è fermato a metà parola e non fiaterà finché non lo svegli.",
+    "shhQuiet": "Shh. Non fiaterà finché non lo svegli.",
+    "wakeResume": "Dov'ero rimasto? Ah, sì:",
+    "woken": "Sveglio. Aspetterà un po' prima della prossima.",
     "reactions": ["…", "Mh.", "Ah! Non dirlo a nessuno: la lacrima è dipinta, il sorriso no."]
   }
 }

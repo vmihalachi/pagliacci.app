@@ -100,8 +100,8 @@
   --ink: #e2f4f1;
   --soft: #98cbc5;
 }
-/* On a call the house lights go lower still. */
-[data-call="on"] {
+/* Shushed, the house lights go lower still. */
+[data-shh="on"] {
   --field: #0e0b10;
   --ink: #b9b0b5;
   --soft: #7b7278;
@@ -308,6 +308,15 @@ button {
   font: 600 16px/1.2 var(--text);
   text-decoration: none;
 }
+.store-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 12px;
+}
+.get-inline .store-buttons {
+  justify-content: flex-end;
+}
+.store.is-alt,
 .store-soon {
   background: transparent;
   color: inherit;
@@ -699,6 +708,9 @@ html:not(.js) :is(.acts, .btn-tell, .exchange) {
   .get-inline {
     justify-self: start;
     text-align: left;
+  }
+  .get-inline .store-buttons {
+    justify-content: flex-start;
   }
   .manners-foot {
     grid-template-columns: 1fr;

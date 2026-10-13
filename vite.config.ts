@@ -40,19 +40,40 @@ const portrait = readFileSync(resolve(root, "src/portrait.svg"), "utf8").trim();
 
 const siteUrl = "https://pagliacci.app";
 /**
- * The Mac App Store listing. Set it to `https://apps.apple.com/app/id<Apple ID>` once the app is approved;
- * until then the page shows "Coming soon to the Mac App Store" instead of a link.
+ * The store listings. Set the Mac one to `https://apps.apple.com/app/id<Apple ID>` and the Windows one to
+ * `https://apps.microsoft.com/detail/<Store ID>` once each is approved; until then that button reads "coming soon".
  */
 const appStoreUrl: string | null = null;
+const microsoftStoreUrl: string | null = null;
 
-/** The store link (`.store`), or "coming soon" while there's no listing. */
-function renderStoreButton(locale: Locale) {
-  if (!appStoreUrl) {
-    return `<span class="store store-soon">${appleIcon}<span>${escapeHtml(locale.store.soon)}</span></span>`;
+/** The four panes, for a Microsoft Store button. */
+const windowsIcon =
+  '<svg class="store-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="currentColor"><rect x="1" y="1" width="10.5" height="10.5"/><rect x="12.5" y="1" width="10.5" height="10.5"/><rect x="1" y="12.5" width="10.5" height="10.5"/><rect x="12.5" y="12.5" width="10.5" height="10.5"/></g></svg>';
+
+/** One store's button (`.store`, `data-store`), or "coming soon" while there's no listing. */
+function storeLink(
+  store: "mac" | "windows",
+  url: string | null,
+  icon: string,
+  label: string,
+  soon: string,
+) {
+  if (!url) {
+    return `<span class="store store-soon" data-store="${store}">${icon}<span>${escapeHtml(soon)}</span></span>`;
   }
-  return `<a class="store" href="${escapeAttr(appStoreUrl)}">${appleIcon}<span>${escapeHtml(
-    locale.store.mac,
-  )}</span></a>`;
+  return `<a class="store" data-store="${store}" href="${escapeAttr(url)}">${icon}<span>${escapeHtml(label)}</span></a>`;
+}
+
+/** Both store buttons (`.store-buttons`); main.js puts the visitor's own platform first. */
+function renderStoreButton(locale: Locale) {
+  const { store } = locale;
+  return `<div class="store-buttons">${storeLink("mac", appStoreUrl, appleIcon, store.mac, store.soon)}${storeLink(
+    "windows",
+    microsoftStoreUrl,
+    windowsIcon,
+    store.windows,
+    store.soonWindows,
+  )}</div>`;
 }
 
 /** A joke's lines as the hero prints them before the script takes over (and for readers without it). */
@@ -99,8 +120,8 @@ const landing = companionLanding({
           yours: jokes[language.code].yours,
           tell: locale.finale.tell,
           again: locale.finale.again,
-          call: locale.hero.call,
-          leave: locale.hero.leave,
+          shh: locale.hero.shh,
+          wake: locale.hero.wake,
         });
       default:
         return undefined;
@@ -112,11 +133,11 @@ const landing = companionLanding({
     name: "Mister Pagliacci",
     description: locale.meta.description,
     applicationCategory: "EntertainmentApplication",
-    operatingSystem: "macOS",
+    operatingSystem: "macOS, Windows",
     inLanguage: language.code,
     url: `${siteUrl}${language.path}`,
     image: `${siteUrl}/og-${language.code}.png`,
-    ...(appStoreUrl ? { installUrl: appStoreUrl } : {}),
+    ...(appStoreUrl || microsoftStoreUrl ? { installUrl: appStoreUrl ?? microsoftStoreUrl } : {}),
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
     author: { "@type": "Person", name: "Vlad Mihalachi", url: "https://vmihalachi.com" },
   }),

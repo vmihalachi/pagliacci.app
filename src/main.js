@@ -1,6 +1,6 @@
 // The landing page's only script: Mister Pagliacci telling jokes in the hero (setup with the lights down, a
-// 1.2 s beat, the punchline brings the lights up), keeping quiet on a call, and listening to the visitor's
-// jokes at the end. It fetches nothing and stores only the chosen language.
+// 1.2 s beat, the punchline brings the lights up), keeping quiet after Shh, listening to the visitor's
+// jokes at the end, and putting their own platform's store first. It fetches nothing and stores only the chosen language.
 
 const i18n = JSON.parse(document.getElementById("runtime-i18n")?.textContent || "{}");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -14,6 +14,20 @@ for (const link of document.querySelectorAll("[data-lang]")) {
       localStorage.setItem("lang", link.dataset.lang);
     } catch {}
   });
+}
+
+// STORE BUTTONS: the visitor's own platform leads, the other one steps back to an outline.
+const platform = navigator.userAgentData?.platform ?? navigator.platform ?? "";
+const ownStore = /^win/i.test(platform) ? "windows" : /^mac/i.test(platform) ? "mac" : null;
+if (ownStore) {
+  for (const group of document.querySelectorAll(".store-buttons")) {
+    const own = group.querySelector(`[data-store="${ownStore}"]`);
+    if (!own) continue;
+    group.prepend(own);
+    for (const other of group.querySelectorAll(`[data-store]:not([data-store="${ownStore}"])`)) {
+      other.classList.add("is-alt");
+    }
+  }
 }
 
 // HIS MARK: blinks on a fixed, irregular schedule (the app's rig does the same), sways in CSS.
@@ -75,7 +89,7 @@ if (hero && jokeBox && i18n.jokes?.length) {
   const aside = hero.querySelector(".aside");
   const mark = hero.querySelector(".mark-hero");
   const another = hero.querySelector('[data-action="another"]');
-  const call = hero.querySelector('[data-action="call"]');
+  const shh = hero.querySelector('[data-action="shh"]');
 
   // The first joke is the one already printed; the rest come shuffled, never the same twice in a row.
   let queue = [];
@@ -89,8 +103,8 @@ if (hero && jokeBox && i18n.jokes?.length) {
   let current = 0;
 
   let performance = null; // { cancelled } while he speaks
-  let onCall = false;
-  let interrupted = null; // { index, phase } when a call cut him off
+  let shushed = false;
+  let interrupted = null; // { index, phase } when Shh cut him off
 
   /** Splits a line into words that appear one by one at speaking pace. Resolves false if cut off. */
   async function say(line, text, run) {
@@ -130,7 +144,7 @@ if (hero && jokeBox && i18n.jokes?.length) {
       return !run.cancelled;
     } finally {
       stop();
-      mark.dataset.mood = onCall ? "hushed" : "awake";
+      mark.dataset.mood = shushed ? "hushed" : "awake";
     }
   }
 
@@ -177,37 +191,37 @@ if (hero && jokeBox && i18n.jokes?.length) {
   }
 
   another.addEventListener("click", () => {
-    if (performance || onCall) return;
+    if (performance || shushed) return;
     aside.textContent = "";
     void perform(nextJoke());
   });
 
-  call.addEventListener("click", async () => {
-    onCall = !onCall;
-    call.setAttribute("aria-pressed", String(onCall));
-    call.textContent = onCall ? i18n.leave : i18n.call;
-    if (onCall) {
-      root.dataset.call = "on";
+  shh.addEventListener("click", async () => {
+    shushed = !shushed;
+    shh.setAttribute("aria-pressed", String(shushed));
+    shh.textContent = shushed ? i18n.wake : i18n.shh;
+    if (shushed) {
+      root.dataset.shh = "on";
       mark.dataset.mood = "hushed";
       another.setAttribute("aria-disabled", "true");
       if (performance) {
         performance.cancelled = true;
-        aside.textContent = i18n.callCut;
+        aside.textContent = i18n.shhCut;
       } else {
-        aside.textContent = i18n.callQuiet;
+        aside.textContent = i18n.shhQuiet;
       }
       return;
     }
-    delete root.dataset.call;
+    delete root.dataset.shh;
     mark.dataset.mood = "awake";
     if (interrupted) {
       const { index, phase } = interrupted;
-      aside.textContent = i18n.callOverResume;
+      aside.textContent = i18n.wakeResume;
       await wait(reduceMotion.matches ? 300 : 1100);
-      if (onCall) return;
+      if (shushed) return;
       void perform(index, phase);
     } else {
-      aside.textContent = i18n.callOver;
+      aside.textContent = i18n.woken;
       another.removeAttribute("aria-disabled");
     }
   });
