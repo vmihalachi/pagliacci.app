@@ -95,13 +95,14 @@
             <li>{{manners.slides}}</li>
             <li>{{manners.away}}</li>
             <li>{{manners.shh}}</li>
+            <li>{{manners.network}}</li>
           </ul>
           <p class="manners-notes">{{promise.body}}</p>
         </div>
       </section>
 
       <!-- FINALE: the visitor tells him a joke. Then: get him. -->
-      <section class="finale" id="get" aria-labelledby="finale-title">
+      <section class="finale" aria-labelledby="finale-title">
         <h2 id="finale-title">{{finale.title}}</h2>
         <div class="exchange">
           <span class="mark mark-big" data-mood="awake">{{portrait}}</span>
@@ -111,7 +112,7 @@
           {{finale.tell}}
         </button>
 
-        <div class="get">
+        <div class="get" id="get">
           <h2>{{get.title}}</h2>
           <p>{{get.lede}}</p>
           {{storeButton}}
