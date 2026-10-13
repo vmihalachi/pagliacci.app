@@ -2,6 +2,9 @@
    next gel (data-gel on <html>), the setup is said with them down. The rest of the page sits in the house
    colours, which follow the system appearance; the gels look the same in both. */
 
+/* Bodoni Moda's text cut, as in the app: the woff2 files are pinned to optical size 11 (only the weight axis
+   left), since browsers otherwise pick the display cut at large sizes, whose hairlines nearly vanish. */
+
 @font-face {
   font-family: "Bodoni Moda";
   src: url("./fonts/BodoniModa-latin.woff2") format("woff2");
@@ -403,7 +406,7 @@ button {
 }
 .setup {
   max-width: 30ch;
-  font: italic 400 clamp(23px, 2.7vw, 40px) / 1.2 var(--display);
+  font: italic 500 clamp(23px, 2.7vw, 40px) / 1.2 var(--display);
   color: var(--soft);
   text-wrap: balance;
 }
@@ -451,7 +454,7 @@ button {
 .aside {
   max-width: 52ch;
   margin-bottom: 20px;
-  font: italic 400 19px/1.4 var(--display);
+  font: italic 500 19px/1.4 var(--display);
   color: var(--soft);
 }
 .aside:empty {
@@ -581,7 +584,7 @@ button {
 .talk .his {
   max-width: 26ch;
   margin-top: 8px;
-  font: italic 400 clamp(26px, 3.2vw, 44px) / 1.15 var(--display);
+  font: italic 500 clamp(26px, 3.2vw, 44px) / 1.15 var(--display);
 }
 @keyframes arrive {
   from {
