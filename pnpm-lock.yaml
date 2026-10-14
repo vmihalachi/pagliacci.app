@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@deskling/landing':
-        specifier: 0.8.0
-        version: 0.8.0(@resvg/resvg-js@2.6.2)(vite-plus@1.1.0(@types/node@26.6.5)(@vitest/ui@5.0.3))
+        specifier: 0.8.1
+        version: 0.8.1(@resvg/resvg-js@2.6.2)(vite-plus@1.1.0(@types/node@26.6.5)(@vitest/ui@5.0.3))
       '@resvg/resvg-js':
         specifier: ^2.6.2
         version: 2.6.2
@@ -41,8 +41,8 @@ packages:
   '@blazediff/core@1.10.0':
     resolution: {integrity: sha512-AOQff0zgR7cGsZL+4E7hVkmujoPUpm0J9xzWGWZj5wCjd3gmxESXAPfKyuzs93VdpQNFhHlBhfOjrcZ+XTERtQ==}
 
-  '@deskling/landing@0.8.0':
-    resolution: {integrity: sha512-4WLQWjNe6Eg95ZrRAoE2oLt/ePAB4Rfvm8h6oBfBESxe2Fqo48jVvkeJvrqMob/1wRVUN1sTBzIhf0kAcuwLUA==}
+  '@deskling/landing@0.8.1':
+    resolution: {integrity: sha512-s4zFButnlX9mYTm3NBND5hYifkevdzNdWIaDqvTUtJv3kVmutDzGoEoAtrGD2n12qNRmaPRHLEmiKgeknRR+SA==}
     engines: {node: '>=24'}
     peerDependencies:
       '@resvg/resvg-js': ^2.6.2
@@ -1119,7 +1119,7 @@ snapshots:
 
   '@blazediff/core@1.10.0': {}
 
-  '@deskling/landing@0.8.0(@resvg/resvg-js@2.6.2)(vite-plus@1.1.0(@types/node@26.6.5)(@vitest/ui@5.0.3))':
+  '@deskling/landing@0.8.1(@resvg/resvg-js@2.6.2)(vite-plus@1.1.0(@types/node@26.6.5)(@vitest/ui@5.0.3))':
     dependencies:
       '@resvg/resvg-js': 2.6.2
       vite-plus: 1.1.0(@types/node@26.6.5)(@vitest/ui@5.0.3)

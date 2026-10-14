@@ -1,2 +1,2 @@
 minimumReleaseAgeExclude:
-  - "@deskling/landing@0.8.0"
+  - "@deskling/landing@0.8.0 || 0.8.1"
