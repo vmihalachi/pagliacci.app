@@ -7,7 +7,7 @@ import {
   escapeHtml,
   scriptJson,
   type Locale,
-} from "@deskling/landing";
+} from "@laching/landing";
 import { defineConfig } from "vite-plus";
 import {
   defaultLanguageCode,
@@ -96,7 +96,7 @@ function twoLines(text: string) {
 
 /**
  * The page's plumbing (every language's home page from `index.html`, the legal pages' links, the sitemap, the
- * `_headers` with its CSP, the social cards and icons) is Deskling's (`@deskling/landing`); what's here is his:
+ * `_headers` with its CSP, the social cards and icons) is Laching's (`@laching/landing`); what's here is his:
  * the languages and URLs, the jokes and the portrait, the store link and the card's joke.
  */
 const landing = companionLanding({
