@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@laching/landing':
-        specifier: 0.14.0
-        version: 0.14.0(@resvg/resvg-js@2.6.2)(vite-plus@1.1.0(@types/node@26.6.5)(@vitest/ui@5.0.3))
+        specifier: 0.16.0
+        version: 0.16.0(@resvg/resvg-js@2.6.2)(vite-plus@1.1.0(@types/node@26.6.5)(@vitest/ui@5.0.3))
       '@resvg/resvg-js':
         specifier: ^2.6.2
         version: 2.6.2
@@ -51,8 +51,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  '@laching/landing@0.14.0':
-    resolution: {integrity: sha512-5i5E7NVov3k4NRtQjt0f2aiXl3Jhu8pGcESzhpH64/7zBren0J/zlqetBg+hgRQqBwYt15dfZhf0LsI7nBUvHg==}
+  '@laching/landing@0.16.0':
+    resolution: {integrity: sha512-HzLYILw9G5PKoNFj0vKVWYtYHKjT36my3otkd4bC7TNERD2F85BRDEYImXcoJLmyL2CSLYOBcbWA8Sfuog7dQQ==}
     engines: {node: '>=24'}
     peerDependencies:
       '@resvg/resvg-js': ^2.6.2
@@ -1128,7 +1128,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.6.0
 
-  '@laching/landing@0.14.0(@resvg/resvg-js@2.6.2)(vite-plus@1.1.0(@types/node@26.6.5)(@vitest/ui@5.0.3))':
+  '@laching/landing@0.16.0(@resvg/resvg-js@2.6.2)(vite-plus@1.1.0(@types/node@26.6.5)(@vitest/ui@5.0.3))':
     dependencies:
       '@resvg/resvg-js': 2.6.2
       vite-plus: 1.1.0(@types/node@26.6.5)(@vitest/ui@5.0.3)
