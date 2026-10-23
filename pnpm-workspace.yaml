@@ -1,2 +1,2 @@
 minimumReleaseAgeExclude:
-  - "@laching/landing@0.14.0 || 0.16.0"
+  - "@laching/landing@0.14.0 || 0.16.0 || 0.19.20"
