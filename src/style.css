@@ -619,13 +619,6 @@ button {
 .get .note {
   margin-top: 0;
 }
-/* The link card, framed by the same hairline as the section rule. */
-.get-card {
-  width: min(100%, 560px);
-  height: auto;
-  margin-top: 28px;
-  border: 1px solid color-mix(in srgb, var(--ink) 24%, transparent);
-}
 html:not(.js) :is(.acts, .btn-tell, .exchange) {
   display: none;
 }
