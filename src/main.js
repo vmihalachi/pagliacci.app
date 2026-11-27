@@ -1,4 +1,4 @@
-// The landing page's only script: Mister Pagliacci telling jokes in the hero (setup with the lights down, a
+// The home page's script: Mister Pagliacci telling jokes in the hero (setup with the lights down, a
 // 1.2 s beat, the punchline brings the lights up), keeping quiet after Shh, listening to the visitor's
 // jokes at the end, and putting their own platform's store first. It fetches nothing and stores only the chosen language.
 
