@@ -103,6 +103,10 @@ const landing = companionLanding({
   root,
   siteUrl,
   appStoreUrl,
+  // What `laching-landing check` holds every legal page to, in every language: both stores (each the store
+  // button's listing URL, null while it isn't live) and both platforms, as the pages write them.
+  stores: { apple: appStoreUrl, microsoft: microsoftStoreUrl },
+  platforms: ["Mac", "Windows"],
   contactEmail: "hello@pagliacci.app",
   languages,
   defaultLanguageCode,
