@@ -10,10 +10,10 @@ fonts or requests (`connect-src 'none'`).
 
 ```sh
 pnpm install
-vp dev      # http://localhost:5173
-vp check    # format, lint, type check
-vp build    # dist/
-vp exec laching-landing check   # dist/: links, hreflang, every language, stores on the legal pages
+vp dev                          # http://localhost:5173
+vp check                        # format, lint, type check
+vp build                        # dist/
+vp exec laching-landing check   # dist/: links, hreflang, every language, stores and platforms on the legal pages
 ```
 
 - `index.html` is a template: `{{key}}` placeholders are filled from `src/i18n/<language>.json`
