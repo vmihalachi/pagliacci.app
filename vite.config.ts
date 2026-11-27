@@ -143,6 +143,28 @@ const landing = companionLanding({
   }),
   languageSwitcher: "inline",
   storeButton: renderStoreButton,
+  // The footer's sibling apps and Laching. The same three apps go in every landing, each at its siteUrl (the plugin
+  // leaves out this site's own) and its own name; the labels are this page's, from `footer` in the locale files.
+  moreFrom: {
+    apps: [
+      {
+        name: "mybackhurts",
+        url: "https://mybackhurts.app",
+        tagline: (locale) => locale.footer.taglines.mybackhurts,
+      },
+      { name: "Mister Pagliacci", url: "https://pagliacci.app" },
+      {
+        name: "sunnysays",
+        url: "https://sunnysays.app",
+        tagline: (locale) => locale.footer.taglines.sunnysays,
+      },
+    ],
+    label: (locale) => locale.footer.moreFrom,
+    builtOn: {
+      url: "https://vmihalachi.github.io/laching/",
+      label: (locale) => locale.footer.builtOn,
+    },
+  },
   localeProblems: ({ code }) =>
     jokes[code as LanguageCode]?.his.length ? undefined : `No jokes for ${code} in src/jokes.json`,
   og: {
