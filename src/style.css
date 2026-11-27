@@ -660,7 +660,8 @@ html:not(.js) :is(.acts, .btn-tell, .exchange) {
   gap: 4px;
   margin-bottom: 8px;
 }
-/* Items a little further apart than a wrapped line's, so a tagline on two lines stays with its app. */
+/* Items a little further apart than a wrapped line's, so a tagline on two lines stays with its app. No-break spaces in
+   the taglines ("45 minutes", "now and then", "dice qualcosa") keep a lone word off the last line in every browser. */
 .more-from-apps {
   display: grid;
   gap: 8px;
