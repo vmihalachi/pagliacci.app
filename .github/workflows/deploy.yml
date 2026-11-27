@@ -37,7 +37,7 @@ jobs:
       - run: pnpm run build
       # Reads dist/ offline: dead links and anchors, hreflang, a page missing in a language, and a legal page
       # that never names a store or platform from vite.config.ts. A problem fails the job before the deploy.
-      - run: npx laching-landing check
+      - run: pnpm exec laching-landing check
       - name: Deploy
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         env:

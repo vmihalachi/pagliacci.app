@@ -7,7 +7,8 @@ cover this page). Commit and push here first, then commit the new submodule poin
 - `index.html` is a `{{key}}` template filled from `src/i18n/<code>.json`; add new strings to `en.json` and
   translate them through the app repository's localization skill.
 - No third-party scripts, fonts or requests: the CSP in the generated `_headers` has `connect-src 'none'`.
-- Before pushing: `vp check && vp build`. `deploy.yml` deploys `main` to Cloudflare.
+- Before pushing: `vp check && vp build && vp exec laching-landing check`. `deploy.yml` runs the same three and
+  deploys `main` to Cloudflare.
 
 <!--VITE PLUS START-->
 
