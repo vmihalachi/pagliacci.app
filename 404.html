@@ -12,10 +12,14 @@
   <body>
     <main class="lone">
       <span class="mark" data-mood="deadpan">{{portrait}}</span>
-      <h1>{{notFound.title}}</h1>
-      <p>{{notFound.body}}</p>
-      <a class="btn btn-solid" href="/">{{notFound.home}}</a>
+      <h1 data-not-found="title">{{notFound.title}}</h1>
+      <p data-not-found="body">{{notFound.body}}</p>
+      <a class="btn btn-solid" href="/" data-not-found="home">{{notFound.home}}</a>
       {{moreFrom}}
     </main>
+    <script type="application/json" id="not-found-i18n">
+      {{notFoundJson}}
+    </script>
+    <script type="module" src="/src/not-found.js"></script>
   </body>
 </html>

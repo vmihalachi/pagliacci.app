@@ -117,6 +117,24 @@ const landing = companionLanding({
         return portrait;
       case "firstJoke":
         return renderJoke(jokes[language.code].his[0]);
+      // The 404's words in every language (with the footer's), for not-found.js to pick the visitor's.
+      case "notFoundJson":
+        return scriptJson(
+          Object.fromEntries(
+            languages.map(({ code }) => {
+              const { notFound, footer } = locales[code];
+              return [
+                code,
+                {
+                  ...notFound,
+                  moreFrom: footer.moreFrom,
+                  taglines: footer.taglines,
+                  builtOn: footer.builtOn,
+                },
+              ];
+            }),
+          ),
+        );
       case "runtimeJson":
         return scriptJson({
           ...locale.runtime,
