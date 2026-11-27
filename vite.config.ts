@@ -6,6 +6,7 @@ import {
   escapeAttr,
   escapeHtml,
   scriptJson,
+  type CompanionLandingOptions,
   type Locale,
 } from "@laching/landing";
 import { defineConfig } from "vite-plus";
@@ -94,6 +95,29 @@ function twoLines(text: string) {
   return { punch1: text.slice(0, middle), punch2: text.slice(middle + 1) };
 }
 
+// The footer's sibling apps and Laching. The same three apps go in every landing, each at its siteUrl (the plugin
+// leaves out this site's own) and its own name; the labels are this page's, from `footer` in the locale files.
+const moreFrom: NonNullable<CompanionLandingOptions<Language>["moreFrom"]> = {
+  apps: [
+    {
+      name: "mybackhurts",
+      url: "https://mybackhurts.app",
+      tagline: (locale) => locale.footer.taglines.mybackhurts,
+    },
+    { name: "Mister Pagliacci", url: "https://pagliacci.app" },
+    {
+      name: "sunnysays",
+      url: "https://sunnysays.app",
+      tagline: (locale) => locale.footer.taglines.sunnysays,
+    },
+  ],
+  label: (locale) => locale.footer.moreFrom,
+  builtOn: {
+    url: "https://vmihalachi.github.io/laching/",
+    label: (locale) => locale.footer.builtOn,
+  },
+};
+
 /**
  * The page's plumbing (every language's home page from `index.html`, the legal pages' links, the sitemap, the
  * `_headers` with its CSP, the social cards and icons) is Laching's (`@laching/landing`); what's here is his:
@@ -117,19 +141,24 @@ const landing = companionLanding({
         return portrait;
       case "firstJoke":
         return renderJoke(jokes[language.code].his[0]);
-      // The 404's words in every language (with the footer's), for not-found.js to pick the visitor's.
+      // The 404's words in every language, with its footer's, for not-found.js to pick the visitor's.
       case "notFoundJson":
         return scriptJson(
           Object.fromEntries(
-            languages.map(({ code }) => {
-              const { notFound, footer } = locales[code];
+            languages.map((other) => {
+              const words = locales[other.code];
               return [
-                code,
+                other.code,
                 {
-                  ...notFound,
-                  moreFrom: footer.moreFrom,
-                  taglines: footer.taglines,
-                  builtOn: footer.builtOn,
+                  ...words.notFound,
+                  moreFrom: moreFrom.label(words, other),
+                  builtOn: moreFrom.builtOn?.label(words, other) ?? "",
+                  // Each app's tagline by its link, as the footer lists them.
+                  taglines: Object.fromEntries(
+                    moreFrom.apps.flatMap(({ url, tagline }) =>
+                      tagline ? [[url, tagline(words, other)]] : [],
+                    ),
+                  ),
                 },
               ];
             }),
@@ -165,28 +194,7 @@ const landing = companionLanding({
   }),
   languageSwitcher: "inline",
   storeButton: renderStoreButton,
-  // The footer's sibling apps and Laching. The same three apps go in every landing, each at its siteUrl (the plugin
-  // leaves out this site's own) and its own name; the labels are this page's, from `footer` in the locale files.
-  moreFrom: {
-    apps: [
-      {
-        name: "mybackhurts",
-        url: "https://mybackhurts.app",
-        tagline: (locale) => locale.footer.taglines.mybackhurts,
-      },
-      { name: "Mister Pagliacci", url: "https://pagliacci.app" },
-      {
-        name: "sunnysays",
-        url: "https://sunnysays.app",
-        tagline: (locale) => locale.footer.taglines.sunnysays,
-      },
-    ],
-    label: (locale) => locale.footer.moreFrom,
-    builtOn: {
-      url: "https://vmihalachi.github.io/laching/",
-      label: (locale) => locale.footer.builtOn,
-    },
-  },
+  moreFrom,
   localeProblems: ({ code }) =>
     jokes[code as LanguageCode]?.his.length ? undefined : `No jokes for ${code} in src/jokes.json`,
   og: {
