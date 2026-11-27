@@ -13,7 +13,8 @@ function pickLanguage() {
       languages.find(({ code }) => code.toLowerCase().split("-")[0] === base)
     );
   };
-  const path = location.pathname.toLowerCase();
+  // With a slash on the end, so /fr and /FR count as /fr/ too.
+  const path = `${location.pathname.toLowerCase()}/`;
   const fromPath = languages.find(
     (language) => language.path !== "/" && path.startsWith(language.path),
   );
@@ -42,9 +43,8 @@ if (locale) {
   setText(document.querySelector('[data-not-found="body"]'), locale.body);
   const home = document.querySelector('[data-not-found="home"]');
   setText(home, locale.home);
-  // The links come from the build's own list of languages, not from text on the page.
+  // The link comes from the build's own list of languages, not from text on the page.
   home?.setAttribute("href", language.path);
-  document.querySelector(".wordmark")?.setAttribute("href", language.path);
   // The footer: its label, each app's tagline (found by the app's link) and the Laching link.
   setText(document.querySelector(".more-from-label"), locale.moreFrom);
   setText(document.querySelector(".built-on a"), locale.builtOn);
