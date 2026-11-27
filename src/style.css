@@ -39,6 +39,9 @@
 :root {
   --display: "Bodoni Moda", "Didot", "Bodoni 72", serif;
   --text: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+  /* The smallest text on the page (buttons, notes, the language codes, the footer); nothing goes below it.
+     Running copy is the body's 17px or more. */
+  --small: 16px;
   --gutter: clamp(16px, 5vw, 72px);
   --lights: 900ms;
 
@@ -101,11 +104,11 @@
   --ink: #e2f4f1;
   --soft: #98cbc5;
 }
-/* Shushed, the house lights go lower still. */
+/* Shushed, the house lights go lower still (the soft text still holds 4.5:1 on the field). */
 [data-shh="on"] {
   --field: #0e0b10;
   --ink: #b9b0b5;
-  --soft: #7b7278;
+  --soft: #857c82;
 }
 
 *,
@@ -257,7 +260,7 @@ button {
   padding: 0 22px;
   border: 0;
   border-radius: 999px;
-  font: 600 16px/1 var(--text);
+  font: 600 var(--small) / 1 var(--text);
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
@@ -265,7 +268,7 @@ button {
     transform 160ms cubic-bezier(0.2, 0.8, 0.2, 1),
     background-color 160ms,
     color 160ms,
-    opacity 160ms;
+    box-shadow 160ms;
 }
 .btn:active {
   transform: translateY(1px);
@@ -283,15 +286,46 @@ button {
   background: var(--ink);
   color: var(--field);
 }
+/* Ink-filled controls write in the field's colour, so a currentColor focus ring would vanish into the field around
+   them: theirs is drawn in ink. */
+.btn-solid:focus-visible,
+.btn-line[aria-pressed="true"]:focus-visible,
+.store:focus-visible,
+.skip:focus-visible {
+  outline-color: var(--ink);
+}
+/* Not now (while he tells a joke, or shushed): the fill goes and a dashed ring stands in, so it can't pass for the
+   solid-ringed Shh beside it; the label keeps the gel's soft colour, so it still reads at 4.5:1. */
 .btn[aria-disabled="true"] {
-  opacity: 0.4;
+  background: transparent;
+  color: var(--soft);
+  outline: 1.5px dashed color-mix(in srgb, var(--soft) 60%, transparent);
+  outline-offset: -1.5px;
   cursor: default;
   transform: none;
+}
+/* The dashed ring holds the outline, so keyboard focus draws its ring outside it, where :focus-visible's would be.
+   Forced colours drop box-shadow, so there focus trades the dashed ring for the usual solid one. */
+.btn[aria-disabled="true"]:focus-visible {
+  box-shadow:
+    0 0 0 3px var(--field),
+    0 0 0 5px currentColor;
+}
+@media (forced-colors: active) {
+  /* Forced colours paint every label the same, so the button that can't be pressed yet takes
+     the system's unavailable colour, label and dashed ring alike */
+  .btn[aria-disabled="true"] {
+    color: GrayText;
+    outline-color: GrayText;
+  }
+  .btn[aria-disabled="true"]:focus-visible {
+    outline: 2px solid CanvasText;
+    outline-offset: 3px;
+  }
 }
 .btn-small {
   min-height: 38px;
   padding: 0 16px;
-  font-size: 15px;
 }
 
 .store {
@@ -303,7 +337,7 @@ button {
   border-radius: 12px;
   background: var(--ink);
   color: var(--field);
-  font: 600 16px/1.2 var(--text);
+  font: 600 var(--small) / 1.2 var(--text);
   text-decoration: none;
 }
 .store-buttons {
@@ -327,7 +361,7 @@ button {
 }
 .note {
   margin-top: 8px;
-  font-size: 14px;
+  font-size: var(--small);
   color: var(--soft);
 }
 
@@ -366,8 +400,7 @@ button {
 .languages {
   display: flex;
   gap: 4px;
-  font: 600 13px/1 var(--text);
-  letter-spacing: 0.06em;
+  font: 600 var(--small) / 1 var(--text);
 }
 .languages a {
   padding: 8px 6px;
@@ -611,7 +644,7 @@ html:not(.js) :is(.acts, .btn-tell, .exchange) {
   justify-content: space-between;
   gap: 12px 32px;
   padding: 28px var(--gutter) 36px;
-  font-size: 14px;
+  font-size: var(--small);
   color: var(--house-soft);
 }
 .footer-links {
