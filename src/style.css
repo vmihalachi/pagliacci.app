@@ -652,6 +652,24 @@ html:not(.js) :is(.acts, .btn-tell, .exchange) {
   flex-wrap: wrap;
   gap: 8px 22px;
 }
+/* The sibling apps and Laching ({{moreFrom}}): a plain list in the footer's type, on its own row above the links. */
+.more-from {
+  flex: 1 1 100%;
+  display: grid;
+  justify-items: start;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+/* Items a little further apart than a wrapped line's, so a tagline on two lines stays with its app. */
+.more-from-apps {
+  display: grid;
+  gap: 8px;
+  padding: 0;
+  list-style: none;
+}
+.built-on {
+  margin-top: 8px;
+}
 
 /* ---------- 404 and legal pages ---------- */
 
@@ -677,6 +695,18 @@ html:not(.js) :is(.acts, .btn-tell, .exchange) {
   color: var(--soft);
   font-size: 19px;
   margin-bottom: 10px;
+}
+/* The footer's list under the way home, in the gel's soft ink. */
+.lone .more-from {
+  margin: 30px 0 0;
+  color: var(--soft);
+  font-size: var(--small);
+}
+.lone .more-from p {
+  max-width: none;
+  margin-bottom: 0;
+  color: inherit;
+  font-size: inherit;
 }
 
 .legal-page {

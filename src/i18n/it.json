@@ -61,7 +61,13 @@
     "terms": "Termini",
     "contact": "Contatti",
     "openSource": "Questo sito è open source",
-    "fonts": "Composto in Bodoni Moda (SIL Open Font License)."
+    "fonts": "Composto in Bodoni Moda (SIL Open Font License).",
+    "moreFrom": "Dello stesso autore",
+    "taglines": {
+      "mybackhurts": "ti stacca dalla sedia ogni 45 minuti",
+      "sunnysays": "è un piccolo girasole che dice cose"
+    },
+    "builtOn": "Fatto con Laching"
   },
   "notFound": {
     "metaTitle": "Pagina non trovata · Mister Pagliacci",
