@@ -1,7 +1,7 @@
 import { languages } from "./i18n/languages";
 
-// The host serves this one page for every missing URL, in English. Show it in the visitor's language instead:
-// the one in the path, else the one they chose on the site, else their browser's.
+// The host serves this one page, built in English, for every missing URL. Show it in the visitor's language
+// instead: the one in the path, else the one saved on the site, else their browser's. No match keeps English.
 const locales = JSON.parse(document.getElementById("not-found-i18n")?.textContent || "{}");
 
 function pickLanguage() {
@@ -28,26 +28,28 @@ function pickLanguage() {
   );
 }
 
+/** Sets an element's text, when the page has the element and the language has the words. */
+function setText(element, text) {
+  if (element && text) element.textContent = text;
+}
+
 const language = pickLanguage();
 const locale = language && locales[language.code];
 if (locale) {
-  const text = (selector, value) => {
-    const element = document.querySelector(selector);
-    if (element && value) element.textContent = value;
-  };
   document.documentElement.lang = language.code;
   document.title = locale.metaTitle;
-  text('[data-not-found="title"]', locale.title);
-  text('[data-not-found="body"]', locale.body);
-  text('[data-not-found="home"]', locale.home);
-  // The link comes from the build's own list of languages, not from text on the page.
-  document.querySelector('[data-not-found="home"]')?.setAttribute("href", language.path);
-  // The footer, in the same language: each app's tagline is keyed by its name.
-  text(".more-from-label", locale.moreFrom);
-  text(".built-on a", locale.builtOn);
+  setText(document.querySelector('[data-not-found="title"]'), locale.title);
+  setText(document.querySelector('[data-not-found="body"]'), locale.body);
+  const home = document.querySelector('[data-not-found="home"]');
+  setText(home, locale.home);
+  // The links come from the build's own list of languages, not from text on the page.
+  home?.setAttribute("href", language.path);
+  document.querySelector(".wordmark")?.setAttribute("href", language.path);
+  // The footer: its label, each app's tagline (found by the app's link) and the Laching link.
+  setText(document.querySelector(".more-from-label"), locale.moreFrom);
+  setText(document.querySelector(".built-on a"), locale.builtOn);
   for (const app of document.querySelectorAll(".more-from-apps li")) {
-    const name = app.querySelector("a")?.textContent;
-    const tagline = app.querySelector(".more-from-tagline");
-    if (tagline && locale.taglines?.[name]) tagline.textContent = locale.taglines[name];
+    const url = app.querySelector("a")?.getAttribute("href");
+    setText(app.querySelector(".more-from-tagline"), url && locale.taglines?.[url]);
   }
 }
