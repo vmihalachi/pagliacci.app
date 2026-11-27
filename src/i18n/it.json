@@ -4,7 +4,7 @@
   },
   "meta": {
     "title": "Mister Pagliacci: un pagliaccio triste che racconta battute dal desktop",
-    "description": "Mister Pagliacci vive nella barra dei menu o nella barra delle applicazioni e più o meno una volta all'ora racconta una battuta, in uno o due tempi. Zitto durante le chiamate. Niente rete. Gratis.",
+    "description": "Mister Pagliacci vive nella barra dei menu o delle applicazioni e circa una volta all'ora racconta una battuta, in uno o due tempi. Durante le chiamate sta zitto e non va mai online.",
     "url": "https://pagliacci.app/it/",
     "ogTitle": "Mister Pagliacci: un pagliaccio triste sul tuo desktop",
     "ogDescription": "Più o meno una volta all'ora racconta una battuta, e sa quando smettere. Gratis per Mac e Windows.",
@@ -37,7 +37,7 @@
     "wake": "Svegliati"
   },
   "manners": {
-    "title": "Racconta battute. <em>Mai durante una chiamata.</em>",
+    "title": "Racconta battute. Mai durante una chiamata.",
     "slides": "Né sopra le tue slide",
     "away": "Né a una stanza vuota",
     "shh": "Né dopo uno shh",
@@ -47,7 +47,7 @@
     "body": "Non va mai online, e battute, impostazioni e voce sono tutte gratis. Con un acquisto unico da sostenitore indossa anche i suoi altri costumi."
   },
   "finale": {
-    "title": "…ma chi fa ridere <em>Mister Pagliacci</em>?",
+    "title": "…ma chi fa ridere Mister Pagliacci?",
     "prompt": "Sentiamo. Le conosco già tutte.",
     "tell": "Raccontagliene una",
     "again": "Raccontagliene un'altra"

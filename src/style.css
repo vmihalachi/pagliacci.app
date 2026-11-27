@@ -46,7 +46,6 @@
   --house: #f1eadf;
   --house-ink: #1c1519;
   --house-soft: #5e5257;
-  --house-accent: #b23a1f;
   --house-line: rgb(28 21 25 / 0.16);
 
   /* The finale's gel. */
@@ -66,7 +65,6 @@
     --house: #141016;
     --house-ink: #efe8dd;
     --house-soft: #a89ea4;
-    --house-accent: #f2b23a;
     --house-line: rgb(239 232 221 / 0.16);
     color-scheme: dark;
   }
@@ -269,9 +267,6 @@ button {
     color 160ms,
     opacity 160ms;
 }
-.btn:hover {
-  transform: translateY(-1px);
-}
 .btn:active {
   transform: translateY(1px);
 }
@@ -436,17 +431,10 @@ button {
 .w {
   display: inline-block;
   opacity: 0;
-  filter: blur(8px);
-  transform: translateY(0.14em);
-  transition:
-    opacity 280ms cubic-bezier(0.2, 0.7, 0.2, 1),
-    filter 280ms cubic-bezier(0.2, 0.7, 0.2, 1),
-    transform 280ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition: opacity 150ms ease-out;
 }
 .w.on {
   opacity: 1;
-  filter: none;
-  transform: none;
 }
 .cut {
   color: var(--soft);
@@ -507,10 +495,6 @@ button {
   letter-spacing: -0.012em;
   text-wrap: pretty;
 }
-.manners h2 em {
-  font-weight: 600;
-  color: var(--house-accent);
-}
 .manners-foot {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -549,9 +533,6 @@ button {
   letter-spacing: -0.028em;
   text-wrap: balance;
 }
-.finale > h2 em {
-  font-weight: 500;
-}
 .exchange {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
@@ -570,7 +551,7 @@ button {
   padding-bottom: 6px;
 }
 .talk p {
-  animation: arrive 320ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation: arrive 150ms ease-out both;
 }
 .talk .you {
   justify-self: end;
@@ -589,7 +570,6 @@ button {
 @keyframes arrive {
   from {
     opacity: 0;
-    transform: translateY(8px);
   }
 }
 .btn-tell {
