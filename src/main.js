@@ -7,13 +7,16 @@ const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const root = document.documentElement;
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-// LANGUAGE: a chosen language stops the root page from redirecting by the browser's.
+// LANGUAGE: the root page and the 404 page follow the language picked here, saved on a click or a middle-click (a new tab).
 for (const link of document.querySelectorAll("[data-lang]")) {
-  link.addEventListener("click", () => {
+  const remember = (event) => {
+    if (event.type === "auxclick" && event.button !== 1) return;
     try {
       localStorage.setItem("lang", link.dataset.lang);
     } catch {}
-  });
+  };
+  link.addEventListener("click", remember);
+  link.addEventListener("auxclick", remember);
 }
 
 // STORE BUTTONS: the visitor's own platform leads, the other one steps back to an outline.
